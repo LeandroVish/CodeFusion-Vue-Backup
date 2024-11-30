@@ -1,81 +1,108 @@
 <script>
-import { ref } from 'vue';
-
 export default {
   setup() {
-
-    const pessoa = ref([
-      { nome: 'Rafael de França', descricao: 'Designer, Programador,Front-end Back-end' },
-      { nome: 'Eduardo Gabriel dos Santos', descricao: 'Designer, Programador, Front-end Back-end' },
-      { nome: 'Leandro gustavo dos santos',  descricao: 'Designer, Programador, Front-end Back-end' },
-    ]);
-
-    return {
-      pessoa
-    };
+    return {};
   }
 };
 </script>
 <template>
   <div class="container-sobre">
     <div class="sobre-dev">
-      <div class="fotos-dev" v-for="(pessoa, index) in pessoa" :key="index">
-        <p class="descricao-dev">{{ pessoa.nome }}</p>
-        <h4 id="funcao-dev">Funções:</h4>
-        <p class="descricao-dev">{{ pessoa.descricao }}</p>
-    </div>
+      <div class="dev">
+        <img class="fotos-dev" src="@/assets/Img/franca.jpg" alt="Foto de Rafael de França" />
+        <p class="nome-dev">Rafael de França</p>
+        <h4 class="funcao-dev">Funções:</h4>
+        <p class="descricao-dev">Designer, Programador, Front-end, Back-end</p>
+      </div>
+      <div class="dev">
+        <img class="fotos-dev" src="@/assets/Img/dudu.jpg" alt="Foto de Eduardo Gabriel dos Santos" />
+        <p class="nome-dev">Eduardo Gabriel dos Santos</p>
+        <h4 class="funcao-dev">Funções:</h4>
+        <p class="descricao-dev">Designer, Programador, Front-end, Back-end</p>
+      </div>
+      <div class="dev">
+        <img class="fotos-dev" src="@/assets/Img/lele.jpg" alt="Foto de Leandro Gustavo dos Santos" />
+        <p class="nome-dev">Leandro Gustavo dos Santos</p>
+        <h4 class="funcao-dev">Funções:</h4>
+        <p class="descricao-dev">Designer, Programador, Front-end, Back-end</p>
+      </div>
     </div>
     <div class="sobre-texto">
       <div class="text">
-        A equipe CodeFusion desenvolveu este site como parte de um Hackathon realizado no IFC Araquari. Durante o evento, nosso time se dedicou a criar uma solução inovadora, aplicando habilidades técnicas e criatividade para atender aos desafios propostos. Estamos orgulhosos do resultado alcançado e do aprendizado compartilhado ao longo dessa jornada colaborativa.
+        <p>
+          A equipe <strong>CodeFusion</strong> desenvolveu este site como parte de um Hackathon realizado no IFC Araquari. Durante o evento, nosso time se dedicou a criar uma solução inovadora, aplicando habilidades técnicas e criatividade para atender aos desafios propostos. Estamos orgulhosos do resultado alcançado e do aprendizado compartilhado ao longo dessa jornada colaborativa.
+        </p>
       </div>
     </div>
   </div>
 </template>
 <style>
-.container-sobre{
+.container-sobre {
   display: flex;
-  margin-top: 175px;
-  margin-left: 150px;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  padding: 50px 20px;
 }
-.sobre-dev{
+
+.sobre-dev {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  align-items: center;
+  gap: 30px;
 }
-.fotos-dev{
+
+.dev {
+  text-align: center;
+}
+
+.fotos-dev {
   width: 150px;
   height: 150px;
-  background-color: #D9D9D9;
   border-radius: 50%;
-  margin-right: 50px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
 }
-.sobre-texto{
-  border-radius: 30px;
-  width: 501px;
-  height: 601px;
-  background-color: #D9D9D9;
-  color: #000000;
-  margin-top: 30px;
-  margin-left: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-}
-.text{
-  background-color: #D9D9D9;
-  font-size: 30px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
-.descricao-dev{
-  margin-left: 155px;
-  white-space: nowrap;
-}
-#funcao-dev{
-  margin-left: 155px;
-  white-space: nowrap;
+
+.nome-dev {
+  font-size: 1.2rem;
+  font-weight: bold;
   color: #2C4156;
+  margin-bottom: 5px;
+}
+
+.funcao-dev {
+  font-size: 1rem;
+  color: #1E88E5;
+  margin: 5px 0;
+}
+
+.descricao-dev {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.sobre-texto {
+  max-width: 500px;
+  padding: 30px;
+  background: #F7F7F7;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  font-size: 1.1rem;
+  font-family: 'Arial', sans-serif;
+  color: #444;
+  text-align: center;
+  line-height: 1.6;
+}
+
+strong {
+  color: #1E88E5;
 }
 </style>

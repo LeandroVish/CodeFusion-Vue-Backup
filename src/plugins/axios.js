@@ -4,7 +4,8 @@ axios.defaults.baseURL = 'http://0.0.0.0:19003/api'
 
 axios.interceptors.request.use(
     (config) => {
-      const token = localStorage.getItem('psg_auth_token');
+      const token = localStorage.getItem('accessToken');
+      console.log(token)
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }

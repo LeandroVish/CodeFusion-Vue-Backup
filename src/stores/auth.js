@@ -1,15 +1,20 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
-import AuthService from '@/services/auth';
+import useAuthStore from '@/services/auth';
 const authService = new AuthService();
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref({});
+    const user = useStorage("user", null);
+    const isAuthenticated = useStorage("Auth", false);
+    const token = useStorage("accessToken", null)
 
-  async function setToken(token) {
-    user.value = await authService.postUserToken(token);
-  }
+    const setUser = (newUser) => {
+      user.value = newUser;
+      token.value = newUser.accessToken
+      isAuthenticated.value = !!newUser;
+    };
+    
 
   function unsetToken() {
     user.value = {};
@@ -17,4 +22,3 @@ export const useAuthStore = defineStore('auth', () => {
 
   return { user, setToken, unsetToken };
 });
-  
